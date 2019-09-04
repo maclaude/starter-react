@@ -1,10 +1,10 @@
 /**
- * NPM import
+ * Node Core Module import
  */
 const path = require('path');
 
 /**
- * Local import
+ * NPM import
  */
 // Plugins de traitement pour dist/
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -23,7 +23,7 @@ const devMode = process.env.NODE_ENV !== 'production';
  * Webpack config
  */
 module.exports = {
-  // Passe le build par dèfaut en dévelopement
+  // Passe le build par défaut en dévelopement
   mode: 'development',
   // Expose le dossier src/ pour les imports
   resolve: {
@@ -61,7 +61,7 @@ module.exports = {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: false, // passer à true pour JS source maps
+        sourceMap: false, // Passer à true pour JS source maps
       }),
       new OptimizeCSSAssetsPlugin({}),
     ],
@@ -74,7 +74,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
-          // babel avec une option de cache
+          // Babel avec une option de cache
           {
             loader: 'babel-loader',
             options: {
@@ -87,7 +87,7 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          // style-loader ou fichier
+          // Style-loader ou fichier
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           // Chargement du CSS
           'css-loader',
@@ -114,7 +114,7 @@ module.exports = {
           },
         ],
       },
-      // fonts
+      // Fonts
       {
         test: /\.(ttf|otf|eot|woff2?)(\?[a-z0-9]+)?$/,
         exclude: /medias/,
@@ -133,9 +133,9 @@ module.exports = {
   devServer: {
     overlay: true, // Overlay navigateur si erreurs de build
     stats: 'minimal', // Infos en console limitées
-    progress: true, // progression du build en console
+    progress: true, // Progression du build en console
     inline: true, // Rechargement du navigateur en cas de changement
-    open: true, // on ouvre le navigateur
+    open: true, // On ouvre le navigateur
     historyApiFallback: true,
     host: host,
     port: port,

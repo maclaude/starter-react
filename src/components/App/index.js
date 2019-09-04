@@ -12,7 +12,7 @@ import './app.scss';
  * Code
  */
 const App = () => (
-  <div id="app">React Boilerplate</div>
+  <div id="app">React/Redux boilerplate</div>
 );
 
 /**
